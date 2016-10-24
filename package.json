@@ -1,0 +1,26 @@
+{
+  "name": "guess-game",
+  "version": "1.0.0",
+  "description": "Simple Guess Game, based on React",
+  "main": "src/index.js",
+  "scripts": {
+    "babel": "babel src -d lib",
+    "browserify": "browserify -e lib/index.js -o html/index.js",
+    "build": "npm run babel && npm run browserify"
+  },
+  "keywords": [
+    "game",
+    "react"
+  ],
+  "author": "62mkv",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.16.0"
+  }
+}
