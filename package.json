@@ -23,6 +23,7 @@
     "react-dom": "^15.3.2"
   },
   "devDependencies": {
-    "babel-cli": "^6.16.0"
+    "babel-cli": "^6.16.0",
+    "browserify": "^13.1.1"
   }
 }
