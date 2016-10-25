@@ -6,7 +6,8 @@
   "scripts": {
     "babel": "babel src -d lib",
     "browserify": "browserify -e lib/index.js -o html/index.js",
-    "build": "npm run babel && npm run browserify"
+    "build": "npm run babel && npm run browserify", 
+    "server": "node server.js"
   },
   "keywords": [
     "game",

@@ -1,20 +1,60 @@
 ﻿import React from 'react';
 import ReactDOM from 'react-dom';
 
-function formatName(user) {
-  return user.firstName + ' ' + user.lastName;
+function Title(props) {
+  return <h1>{props.text}</h1>;
 }
 
-const user = {
-  firstName: 'Harper',
-  lastName: 'Perez'
-};
+function Subtitle(props) {
+  return <h2>{props.text}</h2>;
+}
 
-const element = (
-  <h1>
-    Hello, {formatName(user)}!
-  </h1>
-);
+class Header extends React.Component {
+  render() {
+    return (
+     <div>
+       <Title text="This is a Guess Game" />
+       <Subtitle text="tiny React application" />
+     </div>
+    );
+  }
+}
+
+class Body extends React.Component {
+  render() {
+    return (
+      <button name="start">Start Game!</button>
+    );
+  }
+}
+
+class Footer extends React.Component {
+  render() {
+    return (
+      <div>
+        <img src="static/images/ok.png" />
+        <img src="static/images/vk.png" />
+        <img src="static/images/fb.png" />
+      </div>
+    );
+  }
+}
+
+class Landing extends React.Component {
+  render() {
+    return (
+      <div>
+        <Header />
+         <hr />
+        <Body />
+         <hr />
+        <Footer />
+      </div>
+    );
+  }
+}
+
+const element = <Landing />;
 
 ReactDOM.render(
   element,
