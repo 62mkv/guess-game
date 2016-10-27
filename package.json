@@ -6,7 +6,7 @@
   "scripts": {
     "babel": "babel src -d lib",
     "browserify": "browserify -e lib/index.js -o html/index.js",
-    "build": "npm run babel && npm run browserify", 
+    "build": "npm run babel && npm run browserify",
     "server": "node server.js"
   },
   "keywords": [
@@ -21,7 +21,8 @@
     "hapi": "^15.2.0",
     "inert": "^4.0.2",
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "react-router": "^3.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
