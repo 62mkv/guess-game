@@ -1,22 +1,19 @@
-﻿import React from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, Route, hashHistory } from 'react-router';
 
-function formatName(user) {
-  return user.firstName + ' ' + user.lastName;
-}
+import About from './modules/About';
+import Repos from './modules/Repos';
+import App from './modules/App';
+const element = <App />;
 
-const user = {
-  firstName: 'Harper',
-  lastName: 'Perez'
-};
 
-const element = (
-  <h1>
-    Hello, {formatName(user)}!
-  </h1>
-);
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
+ReactDOM.render((
+  <Router history={hashHistory}>
+    <Route path="/" component={App}/>
+    {/* add the routes here */}
+    <Route path="/repos" component={Repos}/>
+    <Route path="/about" component={About}/>
+  </Router>
+  ), document.getElementById('root')
 );
