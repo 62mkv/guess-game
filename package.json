@@ -8,6 +8,10 @@
     "browserify": "browserify -e lib/index.js -o html/index.js",
     "build": "npm run babel && npm run browserify"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/62mkv/guess-game.git"
+  },
   "keywords": [
     "game",
     "react"
