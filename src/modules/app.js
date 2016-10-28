@@ -26,7 +26,7 @@ class Body extends React.Component {
     return (
      <ul role="nav">
       <li><Link to="about">About</Link></li>
-      <li><Link to="repos">About</Link></li>
+      <li><Link to="repos">Repos</Link></li>
      </ul>
     );
   }
