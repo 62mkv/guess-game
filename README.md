@@ -1,7 +1,7 @@
 # guess-game
 Simple Guess Game, based on React
 
-This is intended to be a simple project, with learning the following technologies being a primary goal of a project: 
+This is intended to be a simple project, with learning the following technologies being a primary goal of the project: 
 - React
 - Redux
 - hapijs

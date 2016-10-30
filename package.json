@@ -4,9 +4,10 @@
   "description": "Simple Guess Game, based on React",
   "main": "src/index.js",
   "scripts": {
-    "babel": "babel src -d lib",
-    "browserify": "browserify -e lib/index.js -o html/index.js",
-    "build": "npm run babel && npm run browserify",
+    "babel": "babel client -d _tmp/babel",
+    "browserify": "browserify -e _tmp/babel/index.js -o build/index.js",
+    "static": "node folders.js && cp static/*.* build/",
+    "build": "npm run static && npm run babel && npm run browserify",
     "server": "node server.js"
   },
   "repository": {
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
-    "browserify": "^13.1.1"
+    "browserify": "^13.1.1",
+    "shelljs": "^0.7.5"
   }
 }

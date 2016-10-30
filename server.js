@@ -16,7 +16,7 @@ server.register(require('inert'), (err) => {
         path: '/{param*}',
         handler: {
             directory: {
-                path: 'html',
+                path: 'build',
                 index: true
             }
         }

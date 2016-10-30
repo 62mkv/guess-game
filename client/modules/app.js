@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Link } from 'react-router'
+import { Link } from 'react-router';
 
 function Title(props) {
   return <h1>{props.text}</h1>;
@@ -24,10 +24,9 @@ class Header extends React.Component {
 class Body extends React.Component {
   render() {
     return (
-     <ul role="nav">
-      <li><Link to="about">About</Link></li>
-      <li><Link to="repos">Repos</Link></li>
-     </ul>
+      <div>
+        {this.props.children}
+      </div>
     );
   }
 }
@@ -44,16 +43,18 @@ class Footer extends React.Component {
   }
 }
 
-export default React.createClass({
+class App extends React.Component {
   render() {
     return (
       <div>
         <Header />
          <hr />
-        <Body />
+        <Body children={this.props.children}/>
          <hr />
         <Footer />
       </div>
     );
   }
-});
+}
+
+export default App;
