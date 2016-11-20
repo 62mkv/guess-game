@@ -1,45 +1,66 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Link } from 'react-router';
-
-function Title(props) {
-  return <h1>{props.text}</h1>;
-}
-
-function Subtitle(props) {
-  return <h2>{props.text}</h2>;
-}
-
-class Header extends React.Component {
-  render() {
-    return (
-     <div>
-       <Title text="This is a Guess Game" />
-       <Subtitle text="tiny React application" />
-     </div>
-    );
-  }
-}
+import About from './About';
+import Question from './Question';
+import Answer from './Answer';
+import { Header, Footer } from './Dummy';
 
 class Body extends React.Component {
-  render() {
-    return (
-      <div>
-        {this.props.children}
-      </div>
-    );
-  }
-}
 
-class Footer extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { 
+      session: false, 
+      question: 0, 
+      mode: 'QUESTION'
+    };
+
+    this.proceed = this.proceed.bind(this);
+    this.answer_ours = this.answer_ours.bind(this);
+    this.answer_theirs = this.answer_theirs.bind(this);
+  }
+ 
+  proceed() {
+    this.setState({
+      session: true,
+      question: this.state.question + 1,
+      mode: 'QUESTION'
+    });
+  }
+
+  answer_ours() {
+    return this.answer('OURS');
+  }
+
+  answer_theirs() {
+    return this.answer('THEIRS');
+  }
+
+  answer(answer_kind) {
+    this.setState({
+      answer: answer_kind, 
+      mode: 'ANSWER'
+    });
+  }
+
   render() {
-    return (
-      <div>
-        <img src="static/images/ok.png" />
-        <img src="static/images/vk.png" />
-        <img src="static/images/fb.png" />
-      </div>
-    );
+    if (this.state.session) { 
+      if (this.state.mode === 'QUESTION') {
+        return (
+          <Question number={this.state.question} answers={[this.answer_ours,this.answer_theirs]} />
+        );
+      } else {
+        return (
+          <Answer number={this.state.question} answer_kind={this.state.answer} proceed={this.proceed} />
+        );
+      }
+    } else {
+      return (
+        <div>
+          <About proceed={this.proceed} />
+        </div>
+      );
+    }
   }
 }
 
@@ -49,7 +70,7 @@ class App extends React.Component {
       <div>
         <Header />
          <hr />
-        <Body children={this.props.children}/>
+        <Body />
          <hr />
         <Footer />
       </div>

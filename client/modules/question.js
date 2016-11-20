@@ -1,15 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router';
 
 class Question extends React.Component {
   render() {
-    this.current = parseInt(this.props.params.number);
-    this.next = this.current+1;
     return (
       <div>
-        <p>This is Question #{this.current}</p>
-        <Link to="about">Вернуться в начало</Link>
-        <Link to={"question/"+this.next}>Следующий вопрос</Link>
+        <p>This is Question #{parseInt(this.props.number)}</p>
+        <button onClick={this.props.answers[0]}>Наше</button>
+        <button onClick={this.props.answers[1]}>Не наше</button>
       </div>
     );
   }

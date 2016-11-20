@@ -6,7 +6,7 @@
   "scripts": {
     "babel": "babel client -d _tmp/babel",
     "browserify": "browserify -e _tmp/babel/index.js -o build/index.js",
-    "static": "node folders.js && cp static/*.* build/",
+    "static": "node folders.js && cp -R static/*.* build/",
     "build": "npm run static && npm run babel && npm run browserify",
     "server": "node server.js"
   },

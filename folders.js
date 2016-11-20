@@ -1,4 +1,4 @@
 ﻿require('shelljs/global');
 
-mkdir('-p','build');
+mkdir('-p','build/images');
 mkdir('-p','_tmp/babel');
