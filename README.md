@@ -9,3 +9,15 @@ This is intended to be a simple project, with learning the following technologie
 - unit-testing
 - Bootstrap with mobile-compatible markup/layout
 - social network integration (posting)
+
+## Usage
+
+Run this commands: 
+
+- git clone git://github.com/62mkv/guess-game.git
+- npm install
+- npm run babel-watch&
+- npm run build-nb
+
+Open "http://localhost:3000" in browser
+

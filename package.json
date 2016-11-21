@@ -5,9 +5,11 @@
   "main": "src/index.js",
   "scripts": {
     "babel": "babel client -d _tmp/babel",
+    "babel-watch": "babel client -d _tmp/babel -w",
     "browserify": "browserify -e _tmp/babel/index.js -o build/index.js",
     "static": "node folders.js && cp -R static/*.* build/",
     "build": "npm run static && npm run babel && npm run browserify",
+    "build-nb": "npm run static && npm run browserify && npm run server",
     "server": "node server.js"
   },
   "repository": {
