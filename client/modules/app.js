@@ -3,6 +3,7 @@ import About from './About';
 import Question from './Question';
 import Answer from './Answer';
 import { Header, Footer } from './Dummy';
+import questions from './Questions';
 
 class Body extends React.Component {
 
@@ -12,8 +13,7 @@ class Body extends React.Component {
     this.state = { 
       session: false, 
       question: 0, 
-      mode: 'QUESTION',
-      limit: 5
+      mode: 'QUESTION'
     };
 
     this.proceed = this.proceed.bind(this);
@@ -61,7 +61,7 @@ class Body extends React.Component {
         );
       } else {
         return (
-          <Answer is_last={this.state.question < this.state.limit} answer_kind={this.state.answer} 
+          <Answer number={this.state.question} answer_kind={this.state.answer} 
              proceed={this.proceed} restart={this.restart}/>
         );
       }

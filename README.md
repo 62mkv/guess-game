@@ -16,7 +16,14 @@ Run this commands:
 
 - git clone git://github.com/62mkv/guess-game.git
 - npm install
-- npm run babel-watch&
+- (on Linux) 
+
+  npm run babel-watch&
+
+  (on Windows)
+
+  start npm run babel-watch
+
 - npm run build-nb
 
 Open "http://localhost:3000" in browser
