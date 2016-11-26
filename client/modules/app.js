@@ -2,6 +2,7 @@ import React from 'react';
 import About from './About';
 import Question from './Question';
 import Answer from './Answer';
+import Progress from './Progress';
 import { Header, Footer } from './Dummy';
 import questions from './Questions';
 
@@ -13,7 +14,8 @@ class Body extends React.Component {
     this.state = { 
       session: false, 
       question: 0, 
-      mode: 'QUESTION'
+      mode: 'QUESTION',
+      history: []
     };
 
     this.proceed = this.proceed.bind(this);
@@ -34,7 +36,8 @@ class Body extends React.Component {
     this.setState({
       session: true,
       question: 1,
-      mode: 'QUESTION'
+      mode: 'QUESTION',
+      history: []
     });
   }
 
@@ -49,22 +52,29 @@ class Body extends React.Component {
   answer(answer_kind) {
     this.setState({
       answer: answer_kind, 
-      mode: 'ANSWER'
+      mode: 'ANSWER',
+      history: this.state.history.concat(answer_kind == questions[this.state.question-1].answer)
     });
   }
 
   render() {
     if (this.state.session) { 
+      var progress = <Progress current={this.state.question - (this.state.mode === 'QUESTION' ? 1: 0)} 
+                      len={questions.length} history={this.state.history} />;
+
       if (this.state.mode === 'QUESTION') {
-        return (
+        var body_content = (
           <Question number={this.state.question} answers={[this.answer_ours,this.answer_theirs]} />
         );
       } else {
-        return (
+        var body_content = (
           <Answer number={this.state.question} answer_kind={this.state.answer} 
              proceed={this.proceed} restart={this.restart}/>
         );
       }
+      return (
+        <div>{progress}<br/>{body_content}</div>
+      ); 
     } else {
       return (
         <div>
