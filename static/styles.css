@@ -1,0 +1,21 @@
+.answer {
+   display: inline-block;
+   width: 10px; 
+   height: 10px; 
+   -moz-border-radius: 5px; 
+   -webkit-border-radius: 5px; 
+   border-radius: 5px;
+}
+
+.answer_wrong {
+   background: red;  
+}
+
+.answer_correct {
+   background: green;  
+}
+
+.answer_unknown {
+   background: gray;  
+}
+
