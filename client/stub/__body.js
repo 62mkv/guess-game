@@ -1,10 +1,9 @@
-import React from 'react';
-import About from './About';
+﻿import React from 'react';
 import Question from './Question';
 import Answer from './Answer';
 import Progress from './Progress';
-import { Header, Footer } from './Dummy';
-import questions from './Questions';
+import questions from '../stub/Questions';
+import About from './About';
 
 class Body extends React.Component {
 
@@ -64,7 +63,7 @@ class Body extends React.Component {
 
       if (this.state.mode === 'QUESTION') {
         var body_content = (
-          <Question number={this.state.question} answers={[this.answer_ours,this.answer_theirs]} />
+          <Question question={questions[this.state.question-1].question} number={this.state.question} answerClick={[this.answer_ours,this.answer_theirs]} />
         );
       } else {
         var body_content = (
@@ -73,7 +72,7 @@ class Body extends React.Component {
         );
       }
       return (
-        <div>{progress}<br/>{body_content}</div>
+        <div>{progress}<br />{body_content}</div>
       ); 
     } else {
       return (
@@ -85,18 +84,4 @@ class Body extends React.Component {
   }
 }
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <Header />
-         <hr />
-        <Body />
-         <hr />
-        <Footer />
-      </div>
-    );
-  }
-}
-
-export default App;
+export default Body;
