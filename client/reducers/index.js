@@ -1,3 +1,5 @@
+import questions from '../stub/Questions';
+
 const initialState = { 
       session: false, 
       question: 0, 
@@ -9,6 +11,18 @@ const initialState = {
 export default function guessApp(state = initialState, action) {
   switch (action.type) {
     case 'ANSWER':
-      
+      return {
+        session: true,
+        mode: 'ANSWER',
+        question: state.question,
+        history: state.history.concat(action.answer_kind === questions[state.question-1].answer)
+      };
+    case 'PROCEED':
+      return {
+        session: true,
+        mode: 'QUESTION',
+        question: action.restart ? 1 : state.question+1,
+        history: action.restart ? [] : state.history
+      }
   }
 }

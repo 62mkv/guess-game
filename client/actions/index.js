@@ -5,8 +5,9 @@
   }
 };
 
-export const proceed = () => {
+export const proceed = (restart_needed) => {
   return {
     type: 'PROCEED',
+    restart: restart_needed
   }
 };
