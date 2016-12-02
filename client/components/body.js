@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, { PropTypes }  from 'react';
 import Question from './Question';
 import Answer from './Answer';
 import Progress from './Progress';
@@ -11,7 +11,7 @@ const Body = ({session, mode, question_number, last_answer, current, history, on
                       len={questions.length} history={history} />;
       const current_question = questions[question_number-1];
       var body_content;      
-      if (this.state.mode === 'QUESTION') {
+      if (mode === 'QUESTION') {
         body_content = (
           <Question question={current_question.question} number={question_number} answerClick={onAnswerClick} />
         );
@@ -31,6 +31,17 @@ const Body = ({session, mode, question_number, last_answer, current, history, on
         </div>
       );
     }
+};
+
+Body.propTypes = {
+ session: PropTypes.bool, 
+ mode: PropTypes.string, 
+ question_number: PropTypes.string, 
+ last_answer: PropTypes.string, 
+ current: PropTypes.integer, 
+ history: PropTypes.arrayOf(PropTypes.bool),
+ onAnswerClick: PropTypes.func.isRequired, 
+ onProceedClick: PropTypes.func.isRequired  
 };
 
 export default Body;
