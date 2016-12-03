@@ -20,7 +20,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onAnswerClick: (answer) => { dispatch(giveAnswer(answer)); },
-    onProceedClick: () => { dispatch(proceed); }
+    onProceedClick: (restart_needed) => { dispatch(proceed(restart_needed)); }
   } 
 };
 

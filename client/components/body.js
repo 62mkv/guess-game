@@ -36,9 +36,9 @@ const Body = ({session, mode, question_number, last_answer, current, history, on
 Body.propTypes = {
  session: PropTypes.bool, 
  mode: PropTypes.string, 
- question_number: PropTypes.string, 
+ question_number: PropTypes.number, 
  last_answer: PropTypes.string, 
- current: PropTypes.integer, 
+ current: PropTypes.number, 
  history: PropTypes.arrayOf(PropTypes.bool),
  onAnswerClick: PropTypes.func.isRequired, 
  onProceedClick: PropTypes.func.isRequired  

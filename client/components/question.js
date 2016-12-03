@@ -1,7 +1,6 @@
-import React from 'react';
-import questions from '../stub/Questions';
+import React, {PropTypes} from 'react';
 
-const Question = (question, number, answerClick) => {
+const Question = ({question, number, answerClick}) => {
   return (
     <div>
       <p>This is Question #{parseInt(number)}</p>
@@ -10,6 +9,12 @@ const Question = (question, number, answerClick) => {
       <button onClick={() => answerClick('THEIRS')}>Не наше</button>
     </div>
   );
+};
+
+Question.propTypes = {
+ question: PropTypes.string.isRequired, 
+ number: PropTypes.number.isRequired,
+ answerClick: PropTypes.func.isRequired 
 };
 
 export default Question;
