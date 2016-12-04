@@ -17,7 +17,7 @@ const Body = ({session, mode, question_number, last_answer, current, history, on
         );
       } else {
          body_content = (
-          <Answer number={question_number} answer_kind={last_answer} question={current_question.question} explanation={current_question.explanation} answer={current_question.answer}
+          <Answer answer_given={last_answer} answer_expected={current_question.answer} explanation={current_question.explanation} number={question_number}  
              is_last={question_number < questions.length} proceed={onProceedClick} />
         );
       }

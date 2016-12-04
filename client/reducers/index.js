@@ -15,14 +15,16 @@ export default function guessApp(state = initialState, action) {
         session: true,
         mode: 'ANSWER',
         question: state.question,
-        history: state.history.concat(action.answer_kind === questions[state.question-1].answer)
+        history: state.history.concat(action.answer_given === questions[state.question-1].answer),
+        answer: action.answer_given
       };
     case 'PROCEED':
       return {
         session: true,
         mode: 'QUESTION',
         question: action.restart ? 1 : state.question+1,
-        history: action.restart ? [] : state.history
+        history: action.restart ? [] : state.history,
+        answer: null
       };
     case "@@redux/INIT":
       return initialState;

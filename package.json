@@ -9,8 +9,9 @@
     "browserify": "browserifyinc -e _tmp/babel/index.js -o build/index.js --cachefile _tmp/browserify/cache.json --debug",
     "static": "node folders.js && cp -R static/*.* build/",
     "build": "npm run static && npm run babel && npm run browserify",
-    "build-nb": "npm run static && npm run browserify && npm run server",
-    "server": "node server.js"
+    "rebuild": "npm run browserify",
+    "server": "node server.js",
+    "background": "start npm run babel-watch && start npm run server"
   },
   "repository": {
     "type": "git",

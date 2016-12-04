@@ -1,7 +1,7 @@
 ﻿export const giveAnswer = (answer) => {
   return {
     type: 'ANSWER',
-    answer_kind: answer
+    answer_given: answer
   }
 };
 
