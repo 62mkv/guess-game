@@ -2,8 +2,7 @@ import React from 'react';
 import { Header, Footer } from './Dummy';
 import VisibleBody from '../containers/body.js';
 
-class App extends React.Component {
-  render() {
+const App = function() {
     return (
       <div>
         <Header />
@@ -13,7 +12,6 @@ class App extends React.Component {
         <Footer />
       </div>
     );
-  }
-}
+  };
 
 export default App;

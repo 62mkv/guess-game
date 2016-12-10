@@ -1,30 +1,31 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-class Title extends React.Component {
-  render() {
-    return <h1>{this.props.text}</h1>;
-  }
-}
+const Title = function ({text}) {
+    return <h1>{text}</h1>;
+  };
 
-class Subtitle extends React.Component {
-  render() {
-    return <h2>{this.props.text}</h2>;
-  }
-}
+Title.propTypes = {
+  text: PropTypes.string.isRequired
+};
 
-export class Header extends React.Component {
-  render() {
+const Subtitle = function({text}){
+    return <h2>{text}</h2>;
+  };
+
+Subtitle.propTypes = {
+  text: PropTypes.string.isRequired
+};
+
+export const Header = function() {
     return (
      <div>
        <Title text="This is a Guess Game" />
        <Subtitle text="tiny React application" />
      </div>
     );
-  }
-}
+  };
 
-export class Footer extends React.Component {
-  render() {
+export const Footer = function() {
     return (
       <div>
         <img src="images/ok.png" />
@@ -32,5 +33,5 @@ export class Footer extends React.Component {
         <img src="images/fb.png" />
       </div>
     );
-  }
-}
+  };
+ 

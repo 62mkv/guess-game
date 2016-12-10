@@ -5,7 +5,7 @@ import Progress from './Progress';
 import questions from '../stub/Questions';
 import About from './About';
 
-const Body = ({session, mode, question_number, last_answer, current, history, onAnswerClick, onProceedClick}) => {
+const Body = function({session, mode, question_number, last_answer, current, history, onAnswerClick, onProceedClick}) {
     if (session) { 
       var progress = <Progress current={current} 
                       len={questions.length} history={history} />;

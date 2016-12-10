@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 
-const Question = ({question, number, answerClick}) => {
+const Question = function({question, number, answerClick}) {
   return (
     <div>
       <p>This is Question #{parseInt(number)}</p>
