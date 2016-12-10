@@ -6,11 +6,12 @@
   "scripts": {
     "babel": "babel client -d _tmp/babel",
     "babel-watch": "babel client -d _tmp/babel -w",
-    "browserify": "browserify -e _tmp/babel/index.js -o build/index.js --debug",
+    "browserify": "browserifyinc -e _tmp/babel/index.js -o build/index.js --cachefile _tmp/browserify/cache.json --debug",
     "static": "node folders.js && cp -R static/*.* build/",
     "build": "npm run static && npm run babel && npm run browserify",
-    "build-nb": "npm run static && npm run browserify && npm run server",
-    "server": "node server.js"
+    "rebuild": "npm run browserify",
+    "server": "node server.js",
+    "background": "start npm run babel-watch && start npm run server"
   },
   "repository": {
     "type": "git",
@@ -29,11 +30,15 @@
     "inert": "^4.0.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-router": "^3.0.0"
+    "react-redux": "^4.4.6",
+    "react-router": "^3.0.0",
+    "redux": "^3.6.0"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "browserify": "^13.1.1",
+    "browserify-incremental": "^3.1.1",
+    "redux-devtools": "^3.3.1",
     "shelljs": "^0.7.5"
   }
 }
