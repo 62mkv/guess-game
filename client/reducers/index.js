@@ -22,8 +22,16 @@ export default function guessApp(state = initialState, action) {
       return {
         session: true,
         mode: 'QUESTION',
-        question: action.restart ? 1 : state.question+1,
+        question: action.restart ? 1 : state.question + 1,
         history: action.restart ? [] : state.history,
+        answer: null
+      };
+    case 'SHOW_RESULT': 
+      return {
+        session: true,
+        mode: 'SHOW_RESULT',
+        question: state.question,
+        history: state.history,
         answer: null
       };
     case "@@redux/INIT":

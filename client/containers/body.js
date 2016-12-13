@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { giveAnswer, proceed } from '../actions';
+import { giveAnswer, proceed, showResult } from '../actions';
 import Body from '../components/Body.js';
 
 const getProp = (prop) => { return prop };
@@ -10,8 +10,8 @@ const mapStateToProps = (state) => {
   return {
     session: getProp(state.session),
     mode: getProp(state.mode),
-    question_number: getProp(state.question), 
-    last_answer: getProp(state.answer),
+    questionNumber: getProp(state.question), 
+    lastAnswer: getProp(state.answer),
     current: getProgress(state.question, state.mode),
     history: getProp(state.history)
   }
@@ -19,8 +19,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAnswerClick: (answer) => { dispatch(giveAnswer(answer)); },
-    onProceedClick: (restart_needed) => { dispatch(proceed(restart_needed)); }
+    onAnswer: (answer) => { dispatch(giveAnswer(answer)); },
+    onProceed: (restart_needed) => { dispatch(proceed(restart_needed)); },
+    onShowResult: () => { dispatch(showResult()); }
   } 
 };
 

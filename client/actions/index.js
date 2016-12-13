@@ -11,3 +11,9 @@ export const proceed = (restart_needed) => {
     restart: restart_needed
   }
 };
+
+export const showResult = () => {
+  return {
+    type: 'SHOW_RESULT'
+  }
+};

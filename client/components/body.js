@@ -4,22 +4,28 @@ import Answer from './Answer';
 import Progress from './Progress';
 import questions from '../stub/Questions';
 import About from './About';
+import Result from './Result';
 
-const Body = function({session, mode, question_number, last_answer, current, history, onAnswerClick, onProceedClick}) {
+const Body = function({session, mode, questionNumber, lastAnswer, current, history, onAnswer, onProceed, onShowResult}) {
     if (session) { 
       var progress = <Progress current={current} 
                       len={questions.length} history={history} />;
-      const current_question = questions[question_number-1];
+      const current_question = questions[questionNumber-1];
       var body_content;      
       if (mode === 'QUESTION') {
         body_content = (
-          <Question question={current_question.question} number={question_number} answerClick={onAnswerClick} />
+          <Question question={current_question.question} number={questionNumber} answerClick={onAnswer} />
+        );
+      } else if (mode === 'ANSWER') {
+         body_content = (
+          <Answer answerGiven={lastAnswer} answerExpected={current_question.answer} explanation={current_question.explanation} 
+             number={questionNumber} isLast={questionNumber < questions.length} proceed={onProceed} showResult={onShowResult}/>
         );
       } else {
+         let properAnswerCount = history.reduce((sum, answer) => { return answer ? sum + 1: sum }, 0);
          body_content = (
-          <Answer answer_given={last_answer} answer_expected={current_question.answer} explanation={current_question.explanation} number={question_number}  
-             is_last={question_number < questions.length} proceed={onProceedClick} />
-        );
+          <Result properAnswerCount={properAnswerCount} totalQuestionCount={questions.length} proceed={onProceed}> </Result>
+         );
       }
       return (
         <div>{progress}<br />{body_content}</div>
@@ -27,7 +33,7 @@ const Body = function({session, mode, question_number, last_answer, current, his
     } else {
       return (
         <div>
-          <About proceed={onProceedClick} />
+          <About proceed={onProceed} />
         </div>
       );
     }
@@ -36,12 +42,13 @@ const Body = function({session, mode, question_number, last_answer, current, his
 Body.propTypes = {
  session: PropTypes.bool, 
  mode: PropTypes.string, 
- question_number: PropTypes.number, 
- last_answer: PropTypes.string, 
+ questionNumber: PropTypes.number, 
+ lastAnswer: PropTypes.string, 
  current: PropTypes.number, 
  history: PropTypes.arrayOf(PropTypes.bool),
- onAnswerClick: PropTypes.func.isRequired, 
- onProceedClick: PropTypes.func.isRequired  
+ onAnswer: PropTypes.func.isRequired, 
+ onProceed: PropTypes.func.isRequired,  
+ onShowResult: PropTypes.func.isRequired
 };
 
 export default Body;
