@@ -11,7 +11,8 @@
     "build": "npm run static && npm run babel && npm run browserify",
     "rebuild": "npm run browserify",
     "server": "node server.js",
-    "background": "start npm run babel-watch && start npm run server"
+    "background": "start npm run babel-watch && start npm run server",
+    "test": "mocha --require babel-register"
   },
   "repository": {
     "type": "git",
@@ -35,9 +36,12 @@
     "redux": "^3.6.0"
   },
   "devDependencies": {
+    "assert": "^1.4.1",
     "babel-cli": "^6.16.0",
+    "babel-register": "^6.18.0",
     "browserify": "^13.1.1",
     "browserify-incremental": "^3.1.1",
+    "mocha": "^3.2.0",
     "redux-devtools": "^3.3.1",
     "shelljs": "^0.7.5"
   }

@@ -3,7 +3,8 @@
         "browser": true,
         "commonjs": true,
         "es6": true,
-        "node": true
+        "node": true, 
+        "mocha": true
     },
     "parserOptions": {
         "ecmaFeatures": {
@@ -21,7 +22,7 @@
         "valid-typeof": "warn"
     }, 
     "plugins": [
-        "react"
+        "react", "mocha"
     ],
-    "extends": ["eslint:recommended", "plugin:react/recommended"]
+    "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:mocha/recommended"]
 }

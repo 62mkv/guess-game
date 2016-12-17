@@ -16,6 +16,11 @@
         {
             "taskName": "background",
             "args": ["run", "background"]
+        }, 
+        {
+            "taskName": "test",
+            "args": ["test"],
+            "isTestCommand": true
         }
     ]
 }
