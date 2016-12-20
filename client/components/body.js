@@ -1,10 +1,10 @@
 ﻿import React, { PropTypes }  from 'react';
-import Question from './Question';
-import Answer from './Answer';
-import Progress from './Progress';
-import questions from '../stub/Questions';
-import About from './About';
-import Result from './Result';
+import Question from './question';
+import Answer from './answer';
+import Progress from './progress';
+import questions from '../stub/questions';
+import About from './about';
+import Result from './result';
 
 const Body = function({session, mode, questionNumber, lastAnswer, current, history, onAnswer, onProceed, onShowResult}) {
     if (session) { 

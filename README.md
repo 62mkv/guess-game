@@ -1,4 +1,7 @@
 # guess-game
+
+[![build status](https://img.shields.io/travis/62mkv/guess-game/master.svg?style=flat-square)](https://travis-ci.org/62mkv/guess-game)
+
 Simple Guess Game, based on React
 
 This is intended to be a simple project, with learning the following technologies being a primary goal of the project: 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Footer } from './Dummy';
+import { Header, Footer } from './dummy';
 import VisibleBody from '../containers/body.js';
 
 const App = function() {

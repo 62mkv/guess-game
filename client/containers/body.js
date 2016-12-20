@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { giveAnswer, proceed, showResult } from '../actions';
-import Body from '../components/Body.js';
+import Body from '../components/body.js';
 
 const getProp = (prop) => { return prop };
 

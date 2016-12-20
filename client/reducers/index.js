@@ -1,4 +1,4 @@
-import questions from '../stub/Questions';
+import questions from '../stub/questions';
 
 const initialState = { 
       session: false, 
@@ -34,7 +34,7 @@ export default function guessApp(state = initialState, action) {
         history: state.history,
         answer: null
       };
-    case "@@redux/INIT":
+    default:
       return initialState;
   }
 }
