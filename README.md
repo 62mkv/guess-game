@@ -2,13 +2,13 @@
 Simple Guess Game, based on React
 
 This is intended to be a simple project, with learning the following technologies being a primary goal of the project: 
-- React
-- Redux
-- hapijs
-- server-side rendering
-- unit-testing
-- Bootstrap with mobile-compatible markup/layout
-- social network integration (posting)
+- [X] React
+- [X] Redux
+- [ ] hapijs
+- [ ] server-side rendering
+- [X] unit-testing
+- [ ] Bootstrap with mobile-compatible markup/layout
+- [ ] social network integration (posting)
 
 ## Usage
 
@@ -27,4 +27,3 @@ Run this commands:
 - npm run build-nb
 
 Open "http://localhost:3000" in browser
-
