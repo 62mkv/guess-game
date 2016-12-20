@@ -1,10 +1,12 @@
 import React, {PropTypes} from 'react';
+import Timer from './timer';
 
 const Question = function({question, number, answerClick}) {
   return (
     <div>
-      <p>This is Question #{parseInt(number)}</p>
-      <p><strong>{question}</strong></p>
+      <div>This is Question #{parseInt(number)}</div>
+      <div><Timer seconds={0} /></div>
+      <div><strong>{question}</strong></div>
       <button onClick={() => answerClick('OURS')}>Наше</button>
       <button onClick={() => answerClick('THEIRS')}>Не наше</button>
     </div>

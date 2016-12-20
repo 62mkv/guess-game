@@ -17,16 +17,14 @@ This is intended to be a simple project, with learning the following technologie
 
 Run this commands: 
 
-- git clone git://github.com/62mkv/guess-game.git
-- npm install
-- (on Linux) 
+* To install:
+ - `git clone git://github.com/62mkv/guess-game.git`
+ - `cd guess-game`
+ - `npm install`
 
-  npm run babel-watch&
+* To build and run:
+ - once in a while (on Windows): `start_servers.bat` and open "http://localhost:3000" in browser
+ - after changes: `npm run rebuild` and refresh page in browser
 
-  (on Windows)
-
-  start npm run babel-watch
-
-- npm run build-nb
-
-Open "http://localhost:3000" in browser
+* To run tests: 
+ - `npm test`

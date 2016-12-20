@@ -9,9 +9,9 @@
     "browserify": "browserifyinc -e _tmp/babel/index.js -o build/index.js --cachefile _tmp/browserify/cache.json --debug",
     "static": "node folders.js && cp -R static/*.* build/",
     "build": "npm run static && npm run babel && npm run browserify",
+    "build-watch": "npm run static && npm run babel-watch",
     "rebuild": "npm run browserify",
     "server": "node server.js",
-    "background": "start npm run babel-watch && start npm run server",
     "test": "mocha --require babel-register"
   },
   "repository": {
