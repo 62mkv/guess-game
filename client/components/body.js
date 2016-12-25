@@ -6,15 +6,18 @@ import questions from '../stub/questions';
 import About from './about';
 import Result from './result';
 
-const Body = function({session, mode, questionNumber, lastAnswer, current, history, onAnswer, onProceed, onShowResult}) {
-    if (session) { 
+const Body = function({session, mode, questionNumber, 
+                       lastAnswer, current, history, duration, 
+                       onAnswer, onProceed, onShowResult}) {
+  if (session) { 
       var progress = <Progress current={current} 
                       len={questions.length} history={history} />;
       const current_question = questions[questionNumber-1];
       var body_content;      
       if (mode === 'QUESTION') {
         body_content = (
-          <Question question={current_question.question} number={questionNumber} answerClick={onAnswer} />
+          <Question question={current_question.question} number={questionNumber} 
+                    duration={duration} answerClick={onAnswer} />
         );
       } else if (mode === 'ANSWER') {
          body_content = (
@@ -24,19 +27,23 @@ const Body = function({session, mode, questionNumber, lastAnswer, current, histo
       } else {
          let properAnswerCount = history.reduce((sum, answer) => { return answer ? sum + 1: sum }, 0);
          body_content = (
-          <Result properAnswerCount={properAnswerCount} totalQuestionCount={questions.length} proceed={onProceed}> </Result>
+          <Result properAnswerCount={properAnswerCount} 
+                  totalQuestionCount={questions.length} 
+                  duration={duration}
+                  proceed={onProceed}> </Result>
          );
       }
+
       return (
         <div>{progress}<br />{body_content}</div>
       ); 
-    } else {
+  } else {
       return (
         <div>
           <About proceed={onProceed} />
         </div>
       );
-    }
+  }
 };
 
 Body.propTypes = {
@@ -46,9 +53,11 @@ Body.propTypes = {
  lastAnswer: PropTypes.string, 
  current: PropTypes.number, 
  history: PropTypes.arrayOf(PropTypes.bool),
+ duration: PropTypes.number.isRequired,
  onAnswer: PropTypes.func.isRequired, 
  onProceed: PropTypes.func.isRequired,  
  onShowResult: PropTypes.func.isRequired
 };
 
 export default Body;
+

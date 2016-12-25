@@ -13,13 +13,14 @@ const mapStateToProps = (state) => {
     questionNumber: getProp(state.question), 
     lastAnswer: getProp(state.answer),
     current: getProgress(state.question, state.mode),
-    history: getProp(state.history)
+    history: getProp(state.history), 
+    duration: getProp(state.duration)
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAnswer: (answer) => { dispatch(giveAnswer(answer)); },
+    onAnswer: (answer, question) => { dispatch(giveAnswer(answer, question)); },
     onProceed: (restart_needed) => { dispatch(proceed(restart_needed)); },
     onShowResult: () => { dispatch(showResult()); }
   } 

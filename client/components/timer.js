@@ -5,34 +5,37 @@ class Timer extends React.Component {
 
     constructor(props) {
       super(props);
-      this.state = { seconds: props.seconds };
+      this.state = { duration: props.duration };
+      this.setDuration = props.setDuration;
     }
 
     tick() {
-      this.setState({ seconds: this.state.seconds+1});
+      this.setState({ duration: this.state.duration+0.1});
     }
 
     componentDidMount() {
       this.timerID = setInterval(
         () => this.tick(),
-        1000
+        100
       );
     }
 
     componentWillUnmount() {
       clearInterval(this.timerID);
+      this.setDuration(this.state.duration);
     }
 
     render() {
-      let {min, sec} = splitSeconds(this.state.seconds);
+      let {min, sec} = splitSeconds(this.state.duration);
       return (
-          <div>{min}:{sec}</div>
+        <div>{min}:{sec}</div>
       ) 
     }
 }
 
 Timer.propTypes = {
-  seconds: PropTypes.number.isRequired
+  duration: PropTypes.number.isRequired,
+  setDuration: PropTypes.func.isRequired
 }
 
 export default Timer;
