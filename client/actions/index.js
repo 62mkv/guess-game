@@ -1,17 +1,19 @@
-﻿import questions from '../stub/questions';
+import questions from '../stub/questions';
 
-export const giveAnswer = (answer, question) => {
+export const giveAnswer = (answer, questionNumber) => {
   return {
     type: 'ANSWER',
-    answer_given: answer, 
-    answer_result: answer === questions[question-1].answer
+    explanation: questions[questionNumber-1].explanation,
+    answerResult: answer === questions[questionNumber-1].answer
   }
 };
 
-export const proceed = (restart_needed) => {
+export const proceed = (restartNeeded, questionNumber) => {
   return {
     type: 'PROCEED',
-    restart: restart_needed
+    restart: restartNeeded, 
+    questionCount: restartNeeded ? questions.length : null,
+    question: questions[questionNumber-1].question
   }
 };
 

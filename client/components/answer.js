@@ -1,12 +1,13 @@
 import React, { PropTypes }  from 'react';
 
-const Answer = ({answerGiven, answerExpected, explanation, number, isLast, proceed, showResult}) => {
-    let answer_text = answerGiven == answerExpected ? 'ВЕРНО' : 'НЕВЕРНО';
-    let next_question = <button onClick={() => proceed(false)}>Следующий вопрос</button>;
-    let last_question = <button onClick={() => showResult()}>Показать результаты</button>;
+const Answer = ({question, isLast, onProceedClick, onShowResultClick}) => {
+    let {answerResult, explanation, questionNumber} = question;
+    let answer_text = answerResult ? 'ВЕРНО' : 'НЕВЕРНО';
+    let next_question = <button onClick={() => onProceedClick(false, questionNumber)}>Следующий вопрос</button>;
+    let last_question = <button onClick={() => onShowResultClick()}>Показать результаты</button>;
     return (
       <div>
-        <p>Вы ответили на вопрос #{number}: {answer_text}</p>
+        <p>Вы ответили на вопрос #{questionNumber}: {answer_text}</p>
         <p>{explanation}</p>
         {isLast ? next_question : last_question}
       </div>
@@ -14,13 +15,14 @@ const Answer = ({answerGiven, answerExpected, explanation, number, isLast, proce
 }
 
 Answer.propTypes = {
-  answerGiven: PropTypes.string.isRequired,
-  answerExpected: PropTypes.string.isRequired,
-  explanation: PropTypes.string.isRequired,
-  number: PropTypes.number.isRequired,
+  question: PropTypes.shape({
+    answerResult: PropTypes.bool, 
+    explanation: PropTypes.string, 
+    questionNumber: PropTypes.number
+  }),
   isLast: PropTypes.bool.isRequired,
-  proceed: PropTypes.func.isRequired,
-  showResult: PropTypes.func.isRequired
+  onProceedClick: PropTypes.func.isRequired,
+  onShowResultClick: PropTypes.func.isRequired
 };
 
 export default Answer;

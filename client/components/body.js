@@ -1,34 +1,28 @@
 ﻿import React, { PropTypes }  from 'react';
-import Question from './question';
-import Answer from './answer';
+import VisibleQuestion from '../containers/question';
+import VisibleAnswer from '../containers/answer';
 import Progress from './progress';
-import questions from '../stub/questions';
 import About from './about';
 import Result from './result';
 
-const Body = function({session, mode, questionNumber, 
-                       lastAnswer, current, history, duration, 
-                       onAnswer, onProceed, onShowResult}) {
+const Body = function({session, mode, current, questionCount, history, duration, onProceed}) {
   if (session) { 
       var progress = <Progress current={current} 
-                      len={questions.length} history={history} />;
-      const current_question = questions[questionNumber-1];
+                      len={questionCount} history={history} />;
       var body_content;      
       if (mode === 'QUESTION') {
         body_content = (
-          <Question question={current_question.question} number={questionNumber} 
-                    duration={duration} answerClick={onAnswer} />
+          <VisibleQuestion />
         );
       } else if (mode === 'ANSWER') {
          body_content = (
-          <Answer answerGiven={lastAnswer} answerExpected={current_question.answer} explanation={current_question.explanation} 
-             number={questionNumber} isLast={questionNumber < questions.length} proceed={onProceed} showResult={onShowResult}/>
+          <VisibleAnswer />
         );
       } else {
-         let properAnswerCount = history.reduce((sum, answer) => { return answer ? sum + 1: sum }, 0);
+         let properAnswerCount = history.reduce((sum, answer) => { return sum + (answer ? 1 : 0) }, 0);
          body_content = (
           <Result properAnswerCount={properAnswerCount} 
-                  totalQuestionCount={questions.length} 
+                  totalQuestionCount={questionCount} 
                   duration={duration}
                   proceed={onProceed}> </Result>
          );
@@ -47,16 +41,13 @@ const Body = function({session, mode, questionNumber,
 };
 
 Body.propTypes = {
- session: PropTypes.bool, 
- mode: PropTypes.string, 
- questionNumber: PropTypes.number, 
- lastAnswer: PropTypes.string, 
- current: PropTypes.number, 
+ session: PropTypes.bool.isRequired, 
+ mode: PropTypes.string.isRequired, 
+ current: PropTypes.number.isRequired, 
+ questionCount: PropTypes.number.isRequired,
  history: PropTypes.arrayOf(PropTypes.bool),
  duration: PropTypes.number.isRequired,
- onAnswer: PropTypes.func.isRequired, 
- onProceed: PropTypes.func.isRequired,  
- onShowResult: PropTypes.func.isRequired
+ onProceed: PropTypes.func.isRequired
 };
 
 export default Body;
