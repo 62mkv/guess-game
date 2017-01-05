@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Answer from '../components/answer.js';
-import { proceed, showResult } from '../actions';
+import { proceed, showResult, restart } from '../actions';
 
 function mapStateToProps(state) {
   return {
@@ -16,6 +16,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     onProceedClick: (restartNeeded, questionNumber) => dispatch(proceed(restartNeeded, questionNumber)),
+    onRestartClick: () => dispatch(restart()),
     onShowResultClick: () => dispatch(showResult())
   }
 }

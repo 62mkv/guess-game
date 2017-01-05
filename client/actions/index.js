@@ -23,9 +23,15 @@ export const showResult = () => {
   }
 };
 
-export const setDuration = (value) => {
+export const setDuration = (duration) => {
   return {
     type: 'SET_DURATION',
-    duration: value
+    duration
+  }
+};
+
+export const restart = () => {
+  return {
+    type: 'RESTART'
   }
 };
