@@ -1,12 +1,11 @@
 const initialState = { 
       session: false, 
-      questionNumber: 0,
-      questionCount: 0, 
+      questionNumber: 0,  
+      questionCount: 0,
       mode: 'QUESTION',
       history: [],
       duration: 0
     };
-
 
 export default function guessApp(state = initialState, action) {
   switch (action.type) {
@@ -25,7 +24,7 @@ export default function guessApp(state = initialState, action) {
       return {
         session: true,
         mode: 'QUESTION',
-        questionNumber: action.restart ? 1 : state.questionNumber + 1,
+        questionNumber: action.questionNumber,
         questionCount: action.restart ? action.questionCount : state.questionCount,
         question: action.question,
         history: action.restart ? [] : state.history,
@@ -35,7 +34,9 @@ export default function guessApp(state = initialState, action) {
       return { ...state, mode: 'SHOW_RESULT' };
     case 'SET_DURATION':
       return { ...state, duration: action.duration};
-    default:
+    case 'RESTART':
       return initialState;
+    default:
+      return state;
   }
 }

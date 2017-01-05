@@ -8,13 +8,20 @@ export const giveAnswer = (answer, questionNumber) => {
   }
 };
 
-export const proceed = (restartNeeded, questionNumber) => {
+function proceedFunction(restart, questionNumber) {
   return {
     type: 'PROCEED',
-    restart: restartNeeded, 
-    questionCount: restartNeeded ? questions.length : null,
-    question: questions[questionNumber-1].question
+    restart, 
+    questionCount: restart ? questions.length : null,
+    question: questions[questionNumber-1].question,
+    questionNumber
   }
+}
+
+export const proceed = (restartNeeded) => function(dispatch, getState){
+  let questionNumber = restartNeeded ? 1 : getState().questionNumber+1;
+  
+  dispatch(proceedFunction(restartNeeded, questionNumber));
 };
 
 export const showResult = () => {

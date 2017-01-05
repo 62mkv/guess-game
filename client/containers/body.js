@@ -8,7 +8,6 @@ const mapStateToProps = (state) => {
   return {
     session: state.session,
     mode: state.mode,
-    questionNumber: state.questionNumber, 
     questionCount: state.questionCount,
     current: getProgress(state.questionNumber, state.mode),
     history: state.history, 
@@ -18,8 +17,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAnswer: (answer, questionNumber) => dispatch(giveAnswer(answer, questionNumber)),
-    onProceed: (restartNeeded, questionNumber) => dispatch(proceed(restartNeeded, questionNumber))
+    onProceed: (restartNeeded) => dispatch(proceed(restartNeeded))
   } 
 };
 

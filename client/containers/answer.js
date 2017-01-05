@@ -15,7 +15,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onProceedClick: (restartNeeded, questionNumber) => dispatch(proceed(restartNeeded, questionNumber)),
+    onProceedClick: (restartNeeded) => dispatch(proceed(restartNeeded)),
     onRestartClick: () => dispatch(restart()),
     onShowResultClick: () => dispatch(showResult())
   }

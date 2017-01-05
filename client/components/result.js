@@ -6,7 +6,7 @@ const Result = function({properAnswerCount, totalQuestionCount, duration, procee
   return (
     <div>
        Вы правильно ответили на {properAnswerCount} из {totalQuestionCount} вопросов за {min} минут {sec} секунд! ПОЗДРАВЛЯЕМ !
-       <button onClick={() => proceed(true, 1)}>Начать снова</button>
+       <button onClick={() => proceed(true)}>Сыграть еще раз</button>
     </div>
   );
 };
