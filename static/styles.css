@@ -1,21 +1,43 @@
+html, body {
+  height: 100%;
+  min-height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 64px;    
+}
+
+p {
+  text-align: justify;
+  text-justify: auto;
+}
+
 .answer {
-   display: inline-block;
-   width: 10px; 
-   height: 10px; 
-   -moz-border-radius: 5px; 
-   -webkit-border-radius: 5px; 
-   border-radius: 5px;
+  display: inline-block;
+  width: 10px; 
+  height: 10px; 
+  -moz-border-radius: 5px; 
+  -webkit-border-radius: 5px; 
+  border-radius: 5px;
 }
 
 .answer_wrong {
-   background: red;  
+  background: red;  
 }
 
 .answer_correct {
-   background: green;  
+  background: green;  
 }
 
 .answer_unknown {
-   background: gray;  
+  background: gray;  
 }
 

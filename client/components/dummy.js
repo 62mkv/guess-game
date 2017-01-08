@@ -27,7 +27,7 @@ export const Header = function() {
 
 export const Footer = function() {
     return (
-      <div>
+      <div className="footer">
         <img src="images/ok.png" />
         <img src="images/vk.png" />
         <img src="images/fb.png" />

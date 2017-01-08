@@ -5,8 +5,12 @@ const Result = function({properAnswerCount, totalQuestionCount, duration, procee
   let { min, sec} = splitSeconds(duration);
   return (
     <div>
-       Вы правильно ответили на {properAnswerCount} из {totalQuestionCount} вопросов за {min} минут {sec} секунд! ПОЗДРАВЛЯЕМ !
-       <button onClick={() => proceed(true)}>Сыграть еще раз</button>
+      Вы правильно ответили на {properAnswerCount} из {totalQuestionCount} вопросов за {min} минут {sec} секунд! ПОЗДРАВЛЯЕМ !
+      <div className="row justify-content-center">
+        <div className="col-3">
+          <button className="btn btn-link" onClick={() => proceed(true)}>Сыграть еще раз</button>
+        </div>  
+       </div>
     </div>
   );
 };
