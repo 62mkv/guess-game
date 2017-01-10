@@ -8,7 +8,9 @@ const Answer = ({question, isLast, onShowResultClick, onProceedClick, onRestartC
     return (
       <div>
         <p>Вы ответили на вопрос #{questionNumber}: {answer_text}</p>
-        <p>{explanation}</p>
+        <div className="row justify-content-center">
+          <div className="col-6 text-center"><h2>{explanation}</h2></div>
+        </div>
         <div className="row justify-content-center">
           {isLast ? next_question : last_question}
         </div>

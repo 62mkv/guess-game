@@ -5,12 +5,12 @@ import { OURS, THEIRS } from '../const';
 function Question({question, number, duration, onAnswerClick}) {
   return (
     <div>
-      <div className="row">
-        <div className="col">Вопрос #{parseInt(number)}:</div>
-        <div className="col"><VisibleTimer duration={duration} /></div>
+      <div className="row justify-content-between">
+        <div className="col-3">Вопрос #{parseInt(number)}:</div>
+        <div className="col-3 text-right"><VisibleTimer duration={duration} /></div>
       </div>
-      <div className="row">
-        <div><strong>{question}</strong></div>
+      <div className="row justify-content-center">
+        <div className="col-2"><h1>{question}</h1></div>
       </div>  
       <div className="row justify-content-center">
        
