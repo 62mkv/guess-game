@@ -9,16 +9,18 @@ const Answer = ({question, isLast, onShowResultClick, onProceedClick, onRestartC
       <div>
         <p>Вы ответили на вопрос #{questionNumber}: {answer_text}</p>
         <div className="row justify-content-center">
-          <div className="col-6 text-center"><h2>{explanation}</h2></div>
+          <div className="col justify"><p>{explanation}</p></div>
         </div>
         <div className="row justify-content-center">
           {isLast ? next_question : last_question}
         </div>
         <div className="row justify-content-end">
-          <div className="col-3"> 
+          <div className="col-6"> 
             <button className="btn btn-link" onClick={() => onProceedClick(true)}>Начать заново</button> 
           </div>
-          <div className="col-3"> 
+        </div>
+        <div className="row justify-content-end">
+          <div className="col-6"> 
             <button className="btn btn-link" onClick={() => onRestartClick()}>Вернуться на стартовую страницу</button> 
           </div>
         </div>
