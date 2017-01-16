@@ -4,10 +4,12 @@ import VisibleBody from '../containers/body.js';
 
 const App = function() {
     return (
-      <div>
+      <div style={{height: '100%'}}>
         <Header />
          <hr />
-        <VisibleBody />
+        <div style={{minHeight: '60%'}}>
+          <VisibleBody />
+        </div>
          <hr />
         <Footer />
       </div>

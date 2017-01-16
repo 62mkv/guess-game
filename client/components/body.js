@@ -6,6 +6,9 @@ import About from './about';
 import Result from './result';
 
 const Body = function({session, mode, current, questionCount, history, duration, onProceed}) {
+
+  const bodyStyle = {maxHeight: '70%'};
+
   if (session) { 
       var progress = <Progress current={current} 
                       len={questionCount} history={history} />;
@@ -29,11 +32,11 @@ const Body = function({session, mode, current, questionCount, history, duration,
       }
 
       return (
-        <div>{progress}<br />{body_content}</div>
+        <div style={bodyStyle}>{progress}<br />{body_content}</div>
       ); 
   } else {
       return (
-        <div>
+        <div style={bodyStyle}>
           <About proceed={onProceed} />
         </div>
       );
