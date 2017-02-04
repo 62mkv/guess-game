@@ -9,16 +9,18 @@ function Question({question, number, duration, onAnswerClick}) {
         <div className="col-3">Вопрос #{parseInt(number)}:</div>
         <div className="col-3 text-right"><VisibleTimer duration={duration} /></div>
       </div>
-      <div className="row justify-content-center">
-        <div className="col text-center"><h1>{question}</h1></div>
-      </div>  
-      <div className="row justify-content-center">
-       
-        <div className="col-4 text-right">
-          <button className="btn btn-link" onClick={() => onAnswerClick(OURS, number)}>Наше</button>
-        </div>
-        <div className="col-4 text-left">
-          <button className="btn btn-link" onClick={() => onAnswerClick(THEIRS, number)}>Не наше</button>
+      <div>
+        <div className="row justify-content-center">
+          <div className="col text-center"><h1>{question}</h1></div>
+        </div>  
+        <div className="row justify-content-center">
+        
+          <div className="col-4 text-right">
+            <button className="btn btn-link" onClick={() => onAnswerClick(OURS, number)}>Наше</button>
+          </div>
+          <div className="col-4 text-left">
+            <button className="btn btn-link" onClick={() => onAnswerClick(THEIRS, number)}>Не наше</button>
+          </div>
         </div>
       </div>
     </div>  

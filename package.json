@@ -2,12 +2,11 @@
   "name": "guess-game",
   "version": "1.0.0",
   "description": "Simple Guess Game, based on React",
-  "main": "src/index.js",
   "scripts": {
-    "babel": "babel client -d _tmp/babel",
-    "babel-watch": "babel client -d _tmp/babel -w",
+    "babel": "babel client/js -d _tmp/babel",
+    "babel-watch": "babel client/js -d _tmp/babel -w",
     "browserify": "browserifyinc -e _tmp/babel/index.js -o build/index.js --cachefile _tmp/browserify/cache.json --debug",
-    "static": "node folders.js && cp -R static/*.* build/",
+    "static": "node folders.js && cp -R client/css/*.* build/css && cp -R client/image/*.* build/images && cp -R client/html/*.* build/",
     "build": "npm run static && npm run babel && npm run browserify",
     "build-watch": "npm run static && npm run babel-watch",
     "rebuild": "npm run browserify",
@@ -45,6 +44,7 @@
     "browserify": "^13.1.1",
     "browserify-incremental": "^3.1.1",
     "mocha": "^3.2.0",
+    "react-addons-create-fragment": "^15.4.2",
     "redux-devtools": "^3.3.1",
     "shelljs": "^0.7.5"
   }

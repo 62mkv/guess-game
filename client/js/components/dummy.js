@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 const Title = function ({text}) {
-    return <h1>{text}</h1>;
+    return <h3>{text}</h3>;
   };
 
 Title.propTypes = {
@@ -9,7 +9,7 @@ Title.propTypes = {
 };
 
 const Subtitle = function({text}){
-    return <h2>{text}</h2>;
+    return <h5>{text}</h5>;
   };
 
 Subtitle.propTypes = {
@@ -18,16 +18,16 @@ Subtitle.propTypes = {
 
 export const Header = function() {
     return (
-     <div>
-       <Title text="This is a Guess Game" />
-       <Subtitle text="tiny React application" />
+     <div className="sticky-top">
+       <Title text="Наше или не Наше?" />
+       <Subtitle text="простенькая игрушка" />
      </div>
     );
   };
 
 export const Footer = function() {
     return (
-      <div className="footer">
+      <div className="fixed-bottom">
         <img src="images/ok.png" />
         <img src="images/vk.png" />
         <img src="images/fb.png" />
