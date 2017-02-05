@@ -11,7 +11,7 @@
     "build-watch": "npm run static && npm run babel-watch",
     "rebuild": "npm run browserify",
     "server": "node server.js",
-    "test": "mocha --require babel-register"
+    "test": "mocha --recursive --require babel-register"
   },
   "repository": {
     "type": "git",

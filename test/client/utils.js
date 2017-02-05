@@ -1,5 +1,5 @@
 const assert = require('assert');
-import { splitSeconds } from '../../client/utils';
+import { splitSeconds } from '../../client/js/utils';
 
 describe('Utils', function() {
   describe('splitSeconds', function() {
