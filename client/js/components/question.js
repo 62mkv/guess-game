@@ -16,10 +16,10 @@ function Question({question, number, duration, onAnswerClick}) {
         <div className="row justify-content-center">
         
           <div className="col-4 text-right">
-            <button className="btn btn-link" onClick={() => onAnswerClick(OURS, number)}>Наше</button>
+            <button className="btn btn-primary" onClick={() => onAnswerClick(OURS, number)}>Наше</button>
           </div>
           <div className="col-4 text-left">
-            <button className="btn btn-link" onClick={() => onAnswerClick(THEIRS, number)}>Не наше</button>
+            <button className="btn btn-primary" onClick={() => onAnswerClick(THEIRS, number)}>Не наше</button>
           </div>
         </div>
       </div>

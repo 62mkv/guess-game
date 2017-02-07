@@ -4,14 +4,14 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import guessApp from './reducers/index.js';
-import App from './components/app.js';
+import VisibleBody from './containers/body.js';
 
 let store = createStore(
   guessApp,
   applyMiddleware(thunkMiddleware)
 );
 
-const element = <Provider store={store}><App /></Provider>;
+const element = <Provider store={store}><VisibleBody /></Provider>;
 
 ReactDOM.render(
   element,

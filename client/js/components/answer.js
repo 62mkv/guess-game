@@ -3,8 +3,8 @@ import React, { PropTypes }  from 'react';
 const Answer = ({question, isLast, onShowResultClick, onProceedClick, onRestartClick}) => {
     let {answerResult, explanation, questionNumber} = question;
     let answer_text = answerResult ? 'ВЕРНО' : 'НЕВЕРНО';
-    let next_question = <button className="btn btn-link" onClick={() => onProceedClick(false)}>Следующий вопрос</button>;
-    let last_question = <button className="btn btn-link" onClick={() => onShowResultClick()}>Показать результаты</button>;
+    let next_question = <button className="btn btn-primary" onClick={() => onProceedClick(false)}>Следующий вопрос</button>;
+    let last_question = <button className="btn btn-primary" onClick={() => onShowResultClick()}>Показать результаты</button>;
     return (
       <div>
         <p>Вы ответили на вопрос #{questionNumber}: {answer_text}</p>
@@ -15,12 +15,12 @@ const Answer = ({question, isLast, onShowResultClick, onProceedClick, onRestartC
           {isLast ? next_question : last_question}
         </div>
         <div className="row justify-content-end">
-          <div className="col-6"> 
+          <div className="col-sm-6"> 
             <button className="btn btn-link" onClick={() => onProceedClick(true)}>Начать заново</button> 
           </div>
         </div>
         <div className="row justify-content-end">
-          <div className="col-6"> 
+          <div className="col-sm-6"> 
             <button className="btn btn-link" onClick={() => onRestartClick()}>Вернуться на стартовую страницу</button> 
           </div>
         </div>

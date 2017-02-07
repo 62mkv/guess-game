@@ -9,14 +9,26 @@
     "suppressTaskName": true,
     "tasks": [
         {
+            "taskName": "background",
+            "args": ["run", "background"]
+        }, 
+        {
             "taskName": "build",
             "args": ["run", "rebuild"],
             "isBuildCommand": true
         },
         {
-            "taskName": "background",
-            "args": ["run", "background"]
-        }, 
+            "taskName": "css",
+            "args": ["run", "css"]
+        },
+        {
+            "taskName": "html",
+            "args": ["run", "html"]
+        },
+        {
+            "taskName": "static",
+            "args": ["run", "static"]
+        },
         {
             "taskName": "test",
             "args": ["test"],

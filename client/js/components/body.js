@@ -7,7 +7,6 @@ import Result from './result';
 
 const Body = function({session, mode, current, questionCount, history, duration, onProceed}) {
 
-  const bodyStyle = {minHeight: '100%'};
   var body_content;      
 
   if (session) { 
@@ -38,7 +37,7 @@ const Body = function({session, mode, current, questionCount, history, duration,
   }
 
   return (
-        <div style={bodyStyle}>
+        <div>
           {body_content}
         </div>
   )
